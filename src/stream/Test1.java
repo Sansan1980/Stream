@@ -1,5 +1,8 @@
+package stream;
+
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Test1 {
     public static void main(String[] args) {
@@ -47,5 +50,11 @@ public class Test1 {
         List<Integer> list4 = set.stream().map(String::length).collect(Collectors.toList());//Преобразовали из Set в поток  Srteam из стрима  в List
         System.out.println(set3);//[2, 4, 6, 9]
         System.out.println(list4);//[[2, 9, 4, 6]
+        List<String> fruits = Stream.of("apple", "banana", "lemon", "orange")
+                // здесь могут быть ещё какие-то преобразования
+                .peek(e-> System.out.println(e))
+                .collect(Collectors.toList());
+        System.out.println(fruits);
     }
+
 }
